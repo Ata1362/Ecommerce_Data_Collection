@@ -8,6 +8,8 @@ def remove_repeated_data(data):
 
 # We collect a list of all headers in each excel file
 
+# A Better way to extract HEADER is after read the excel, use "data.head()" will read whole headers.
+
 header = []
 for item in glb.glob("G:\Google\Electronic Design\python_projects\Insight of Ecommerce Data/2020\*"):
     data = pd.read_excel(item,
