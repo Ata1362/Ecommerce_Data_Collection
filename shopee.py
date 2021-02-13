@@ -5,6 +5,8 @@ import pgeocode as pg
 import glob as glb
 
 def GetTheCoordinates(country, postcode):
+    """ This Function needs pgeocode to be installed.
+     It will return the exact coordination of input postcode from a specific country"""
     Country = pg.Nominatim(country)
     Results = Country.query_postal_code(postcode)
     lat = Results["latitude"]
@@ -16,6 +18,9 @@ def GetTheCoordinates(country, postcode):
 # which will take all files in the main folder#
 
 def read_headers(address):
+    """ This function will return the mutual headers among all *.xls format in the main folder.
+     Make sure that you provide the full address. "*" will address all files in the 2020 folder.
+     Exp: G:\Google\Electronic Design\python_projects\Insight of Ecommerce Data/2020\* """
     header = []
     for item in glb.glob(address):
         data = pd.read_excel(item,
